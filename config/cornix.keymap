@@ -37,6 +37,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 / {
@@ -176,10 +177,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&none  &none  &kp L             &kp U             &kp COMMA            &kp PERIOD                 &kp F            &kp W                &kp R            &kp Y         &none  &none
-&kp Q  &kp E  &hm_l LEFT_GUI I  &hm_l LEFT_ALT A  &hm_shift_l LSHFT O  &kp MINUS                  &kp K            &hm_shift_r RSHFT T  &hm_r RALT N     &hm_r RGUI S  &kp H  &kp P
-&none  &kp Z  &kp X             &kp C             &kp V                &none        &none  &none  &kp G            &kp D                &kp M            &kp J         &kp B  &none
-&none  &none  &none             &lt 4 ESCAPE      &mt LCTRL TAB        &lt 1 SPACE                &lt 2 BACKSPACE  &mt RCTRL ENTER      &lt 3 BACKSPACE  &none         &none  &none
+&none  &none  &kp L             &kp U             &kp COMMA            &kp PERIOD                        &kp F            &kp W                &kp R         &kp Y         &none  &none
+&kp Q  &kp E  &hm_l LEFT_GUI I  &hm_l LEFT_ALT A  &hm_shift_l LSHFT O  &kp MINUS                         &kp K            &hm_shift_r RSHFT T  &hm_r RALT N  &hm_r RGUI S  &kp H  &kp P
+&none  &kp Z  &kp X             &kp C             &kp V                &none        &none  &out OUT_TOG  &kp G            &kp D                &kp M         &kp J         &kp B  &none
+&none  &none  &none             &lt 4 ESCAPE      &mt LCTRL TAB        &lt 1 SPACE                       &lt 2 BACKSPACE  &mt RCTRL ENTER      &lt 3 DELETE  &none         &none  &none
             >;
 
             sensor-bindings =
@@ -198,10 +199,10 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&trans    &trans         &trans        &trans         &trans               &trans                  &trans  &trans               &trans         &trans        &trans            &trans
-&trans    &hm_l LCTRL A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &trans                  &trans  &hm_shift_r RSHFT J  &hm_r RCTRL K  &hm_r RALT L  &hm_r RCTRL SEMI  &trans
-&kp LGUI  &trans         &trans        &trans         &trans               &trans  &trans  &trans  &trans  &trans               &trans         &trans        &trans            &trans
-&none     &none          &none         &trans         &trans               &trans                  &trans  &trans               &trans         &none         &none             &none
+&none       &none            &kp KP_NUMBER_1         &kp KP_NUMBER_2             &kp KP_NUMBER_3                &trans                  &trans     &kp LESS_THAN           &kp KP_EQUAL           &kp GREATER_THAN  &none          &none
+&kp TILDE2  &kp KP_NUMBER_0  &hm_l LGUI KP_NUMBER_4  &hm_l LEFT_ALT KP_NUMBER_5  &hm_shift_l LSHFT KP_NUMBER_6  &trans                  &kp CARET  &hm_shift_r RSHFT PLUS  &hm_r RIGHT_ALT MINUS  &hm_r RGUI ASTRK  &kp SLASH      &kp PERCENT
+&none       &kp DOLLAR       &kp KP_NUMBER_7         &kp KP_NUMBER_8             &kp KP_NUMBER_9                &trans  &trans  &trans  &kp UNDER  &kp EXCLAMATION         &kp QUESTION           &kp COLON         &kp SEMICOLON  &none
+&none       &none            &none                   &trans                      &trans                         &trans                  &trans     &trans                  &trans                 &none             &none          &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
