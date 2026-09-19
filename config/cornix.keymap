@@ -3,15 +3,16 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
 // 定義を呼んでくる
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
+
 #include <dt-bindings/zmk/mouse.h>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 // 特殊入力の挙動を調整できる
+
 &mt {
     flavor = "tap-preferred";
     tapping-term-ms = <225>;
@@ -43,77 +44,53 @@
     //  Row 1: 12 13 14 15 16 17                 18 19 20 21 22 23
     //  Row 2: 24 25 26 27 28 29  30(中) 31(中)  32 33 34 35 36 37
     //  Row 3: 38 39 40 41 42 43                 44 45 46 47 48 49
+
     combos {
         compatible = "zmk,combos";
         timeout-ms = <150>;
         require-prior-idle-ms = <150>;
 
         // 英数: X (26) + C (27)
+
         combo_lang2 {
-            key-positions = <26 27>;
+            key-positions = <15 16>;
             bindings = <&kp LANG2>;
         };
 
         // かな: M (34) + J (35)
+
         combo_lang1 {
-            key-positions = <34 35>;
+            key-positions = <20 19>;
             bindings = <&kp LANG1>;
+        };
+
+        combo_xn {
+            bindings = <&xn>;
+            key-positions = <21 22>;
         };
     };
 
     // キーに入力を割り当てる
+
+    macros {
+        xn: xn {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp X &kp N>;
+            label = "XN";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
-
-        layer_base {
-            display-name = "Base";
-            bindings = <
-&none  &none  &kp L        &kp U        &kp F        &kp MINUS                               &kp K         &kp W        &kp R        &kp Y        &none  &none
-&kp Q  &kp E  &mt LCTRL I  &mt LALT A   &mt LSHFT O  &kp COMMA                               &kp G         &mt RSHFT T  &mt RALT N   &mt RCTRL S  &kp H  &kp P
-&none  &kp Z  &kp X        &kp C        &kp V        &none        &none        &none         &none         &kp D        &kp M        &kp J        &kp B  &none
-&none  &none  &none        &none        &lt 1 BSPC   &mt LGUI RET                            &mt RGUI TAB  &lt 2 SPACE  &none        &none        &none  &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        layer_math {
-            display-name = "Math";
-            bindings = <
-&none     &none   &kp N4        &kp N5       &kp N6        &trans                                    &kp EQUAL     &kp LT          &kp UNDER       &kp GT         &none     &none
-&kp PLUS  &kp N0  &mt LCTRL N1  &mt LALT N2  &mt LSHFT N3  &kp DOT                                   &kp LS(INT1)  &mt RSHFT COLON &mt RALT MINUS  &mt RCTRL DQT  &kp FSLH  &kp PRCNT
-&none     &kp DLLR &kp N7       &kp N8       &kp N9        &none   &none   &none                     &none         &kp EXCL        &kp QMARK       &kp SQT        &kp SEMI  &none
-&none     &none   &none         &none        &none         &trans                                    &trans        &lt 6 SPACE     &none           &none          &none     &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        layer_navi {
-            display-name = "Navi";
-            bindings = <
-&none     &none     &kp RBKT        &kp AT         &kp NUHS        &kp CARET                                 &kp C_VOL_UP  &kp ESC   &kp UP      &kp CAPS      &none         &none
-&kp LBKT  &kp HASH  &mt LCTRL STAR  &mt LALT AMPS  &mt LSHFT LPAR  &kp LS(INT3)                              &kp C_VOL_DN  &kp LEFT  &kp DOWN    &kp RIGHT     &kp C_BRI_UP  &kp LS(LG(N3))
-&none     &kp INT1  &kp RBRC        &kp LBRC       &kp TILDE2      &none         &none   &none               &none         &kp C_PREV &kp C_PP   &kp C_NEXT    &kp C_BRI_DN  &none
-&none     &none     &none           &none          &lt 6 BSPC      &trans                                    &trans        &none     &none       &none         &none         &none
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
 
         layer_win_base {
             display-name = "WinBase";
             bindings = <
-&none  &none  &kp L       &kp U       &kp F        &kp MINUS                               &kp K         &kp W        &kp R        &kp Y        &none  &none
-&kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O  &kp COMMA                               &kp G         &mt RSHFT T  &mt RALT N   &mt RGUI S   &kp H  &kp P
-&none  &kp Z  &kp X       &kp C       &kp V        &none        &none         &none        &none         &kp D        &kp M        &kp J        &kp B  &none
-&none  &none  &none       &none       &lt 4 BSPC   &mt LCTRL RET                           &mt RCTRL TAB &lt 5 SPACE  &none        &none        &none  &none
+&none  &none  &kp L       &kp U       &kp F        &none                        &none            &kp W            &kp R       &kp Y       &none  &none
+&kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O  &kp MINUS                    &kp K            &mt RSHFT T      &mt RALT N  &mt RGUI S  &kp H  &kp P
+&none  &kp Z  &kp X       &kp C       &kp V        &kp COMMA      &none  &none  &kp G            &kp D            &kp M       &kp J       &kp B  &none
+&none  &none  &none       &none       &lt 1 SPACE  &mt LCTRL TAB                &mt RCTRL ENTER  &lt 2 BACKSPACE  &none       &none       &none  &none
             >;
 
             sensor-bindings =
@@ -124,10 +101,10 @@
         layer_win_math {
             display-name = "WinMath";
             bindings = <
-&none     &none   &kp N4       &kp N5      &kp N6       &trans                                    &kp EQUAL     &kp LT          &kp UNDER       &kp GT        &none     &none
-&kp PLUS  &kp N0  &mt LGUI N1  &mt LALT N2 &mt LSHFT N3 &kp DOT                                   &kp LS(INT1)  &mt RSHFT COLON &mt RALT MINUS  &mt RGUI DQT  &kp FSLH  &kp PRCNT
-&none     &kp DLLR &kp N7      &kp N8      &kp N9       &none   &none   &none                     &none         &kp EXCL        &kp QMARK       &kp SQT       &kp SEMI  &none
-&none     &none   &none        &none       &none        &trans                                    &trans        &lt 6 SPACE     &none           &none         &none     &none
+&none     &none     &kp N1       &kp N2       &kp N3        &none                  &none                    &kp LT           &kp UNDER       &kp GT        &none     &none
+&kp PLUS  &kp N0    &mt LGUI N4  &mt LALT N5  &mt LSHFT N6  &trans                 &kp LS(EQUAL)            &mt RSHFT COLON  &mt RALT MINUS  &mt RGUI DQT  &kp FSLH  &kp PRCNT
+&none     &kp DLLR  &kp N7       &kp N8       &kp N9        &kp DOT  &none  &none  &kp LS(INTERNATIONAL_1)  &kp EXCL         &kp QMARK       &kp SQT       &kp SEMI  &none
+&none     &none     &none        &none        &none         &trans                 &trans                   &lt 3 BACKSPACE  &none           &none         &none     &none
             >;
 
             sensor-bindings =
@@ -138,10 +115,10 @@
         layer_win_navi {
             display-name = "WinNavi";
             bindings = <
-&none     &none     &kp RBKT       &kp AT        &kp NUHS        &kp CARET                                 &kp C_VOL_UP  &kp ESC   &kp UP      &kp CAPS      &none         &none
-&kp LBKT  &kp HASH  &mt LGUI STAR  &mt LALT AMPS &mt LSHFT LPAR  &kp LS(INT3)                              &kp C_VOL_DN  &kp LEFT  &kp DOWN    &kp RIGHT     &kp C_BRI_UP  &kp PSCRN
-&none     &kp INT1  &kp RBRC       &kp LBRC      &kp TILDE2      &none         &none   &none               &none         &kp C_PREV &kp C_PP   &kp C_NEXT    &kp C_BRI_DN  &none
-&none     &none     &none          &none         &lt 6 BSPC      &trans                                    &trans        &none     &none       &none         &none         &none
+&none     &none     &kp RBKT       &kp AT         &kp NUHS        &none                                  &none         &kp ESC     &kp UP    &kp CAPS    &none         &none
+&kp LBKT  &kp HASH  &mt LGUI STAR  &mt LALT AMPS  &mt LSHFT LPAR  &kp CARET                              &kp C_VOL_UP  &kp LEFT    &kp DOWN  &kp RIGHT   &kp C_BRI_UP  &kp PSCRN
+&none     &kp INT1  &kp RBRC       &kp LBRC       &kp TILDE2      &kp LS(INTERNATIONAL_3)  &none  &none  &kp C_VOL_DN  &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_BRI_DN  &none
+&none     &none     &none          &none          &lt 3 SPACE     &trans                                 &trans        &none       &none     &none       &none         &none
             >;
 
             sensor-bindings =
@@ -152,10 +129,10 @@
         layer_system {
             display-name = "System";
             bindings = <
-&none   &none         &bt BT_SEL 4  &bt BT_CLR    &bt BT_CLR_ALL  &out OUT_TOG                             &tog 3  &kp INS  &kp HOME  &kp PG_UP  &none      &none
-&kp F1  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &kp F6                                   &kp F7  &kp DEL  &kp END   &kp PG_DN  &kp K_APP  &kp F12
-&none   &kp F2        &kp F3        &kp F4        &kp F5          &none         &bootloader   &bootloader  &none   &kp F8   &kp F9    &kp F10    &kp F11    &none
-&none   &none         &none         &none         &none           &none                                    &none   &none    &none     &none      &none      &none
+&none   &none         &bt BT_SEL 4  &bt BT_CLR    &bt BT_CLR_ALL  &none                                   &none   &kp INS  &kp HOME  &kp PG_UP  &none      &none
+&kp F1  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &out OUT_TOG                            &tog 3  &kp DEL  &kp END   &kp PG_DN  &kp K_APP  &kp F12
+&none   &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &bootloader  &bootloader  &kp F7  &kp F8   &kp F9    &kp F10    &kp F11    &none
+&none   &none         &none         &none         &none           &none                                   &none   &none    &none     &none      &none      &none
             >;
 
             sensor-bindings =
