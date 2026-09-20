@@ -82,38 +82,16 @@
         };
     };
 
-    behaviors {
-        lc_home_end: lc_home_end {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LC_HOME_END";
-            bindings = <&kp HOME>, <&kp END>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-            keep-mods = <(MOD_LCTL)>;
-        };
-
-        lc_pgup_pgdn: lc_pgup_pgdn {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LC_PGUP_PGDN";
-            bindings = <&kp PG_UP>, <&kp PG_DN>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LCTL)>;
-            keep-mods = <(MOD_LCTL)>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         layer_win_base {
             display-name = "WinBase";
             bindings = <
-&none  &none  &kp L       &kp U       &kp F          &none                      &none            &kp W            &kp R         &kp Y          &none  &none
-&kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O    &kp MINUS                  &kp K            &mt RSHFT T      &mt RALT N    &mt RGUI S     &kp H  &kp P
-&none  &kp Z  &kp X       &kp C       &kp V          &kp COMMA    &none  &none  &kp G            &kp D            &kp M         &kp J          &kp B  &none
-&none  &none  &none       &mo 4       &mt LCTRL TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RCTRL ENTER  &lc_home_end  &lc_pgup_pgdn  &none  &none
+&none  &none  &kp L       &kp U       &kp F          &none                      &none            &kp W            &kp R       &kp Y       &none  &none
+&kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O    &kp MINUS                  &kp K            &mt RSHFT T      &mt RALT N  &mt RGUI S  &kp H  &kp P
+&none  &kp Z  &kp X       &kp C       &kp V          &kp COMMA    &none  &none  &kp G            &kp D            &kp M       &kp J       &kp B  &none
+&none  &none  &none       &mo 4       &mt LCTRL TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RCTRL ENTER  &none       &none       &none  &none
             >;
 
             sensor-bindings =
@@ -165,10 +143,10 @@
 
         LAYER_MOUSE {
             bindings = <
-&trans  &trans     &trans        &trans        &trans      &trans                  &trans    &trans          &trans          &trans        &trans           &trans
-&trans  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHIFT  &trans                  &trans    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
-&trans  &trans     &trans        &trans        &trans      &trans  &trans  &trans  &mkp MB3  &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans
-&trans  &trans     &trans        &trans        &trans      &trans                  &trans    &mkp MB1        &mkp MB2        &trans        &trans           &trans
+&trans  &trans     &trans        &trans        &trans      &trans                  &trans          &trans          &mmv MOVE_UP    &trans           &trans  &trans
+&trans  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHIFT  &trans                  &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &trans  &trans
+&trans  &trans     &trans        &trans        &trans      &trans  &trans  &trans  &msc SCRL_DOWN  &msc SCRL_LEFT  &mkp MB3        &msc SCRL_RIGHT  &trans  &trans
+&trans  &trans     &trans        &trans        &trans      &trans                  &trans          &mkp MB1        &mkp MB2        &trans           &trans  &trans
             >;
         };
     };
