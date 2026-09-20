@@ -83,22 +83,22 @@
     };
 
     behaviors {
-        ls_pgup: ls_pgup {
+        rs_pgup: rs_pgup {
             compatible = "zmk,behavior-mod-morph";
-            label = "LS_PGUP";
-            bindings = <&kp D>, <&kp LC(PG_UP)>;
+            label = "RS_PGUP";
+            bindings = <&kp MINUS>, <&kp LC(PG_UP)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_RSFT)>;
         };
 
-        ls_pgdn: ls_pgdn {
+        rs_pgdn: rs_pgdn {
             compatible = "zmk,behavior-mod-morph";
-            label = "LS_PGDN";
-            bindings = <&kp J>, <&kp LC(PG_DN)>;
+            label = "RS_PGDN";
+            bindings = <&kp COMMA>, <&kp LC(PG_DN)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            mods = <(MOD_RSFT)>;
         };
     };
 
@@ -109,8 +109,8 @@
             display-name = "WinBase";
             bindings = <
 &none  &none  &kp L       &kp U       &kp F          &none                      &none            &kp W            &kp R       &kp Y       &none  &none
-&kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O    &kp MINUS                  &kp K            &mt RSHFT T      &mt RALT N  &mt RGUI S  &kp H  &kp P
-&none  &kp Z  &kp X       &kp C       &kp V          &kp COMMA    &none  &none  &kp G            &ls_pgup         &kp M       &ls_pgdn    &kp B  &none
+&kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O    &rs_pgup                   &kp K            &mt RSHFT T      &mt RALT N  &mt RGUI S  &kp H  &kp P
+&none  &kp Z  &kp X       &kp C       &kp V          &rs_pgdn     &none  &none  &kp G            &kp D            &kp M       &kp J       &kp B  &none
 &none  &none  &none       &mo 4       &mt LCTRL TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RCTRL ENTER  &none       &none       &none  &none
             >;
 
