@@ -82,6 +82,26 @@
         };
     };
 
+    behaviors {
+        ls_pgup: ls_pgup {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LS_PGUP";
+            bindings = <&kp D>, <&kp LC(PG_UP)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        ls_pgdn: ls_pgdn {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LS_PGDN";
+            bindings = <&kp J>, <&kp LC(PG_DN)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -90,7 +110,7 @@
             bindings = <
 &none  &none  &kp L       &kp U       &kp F          &none                      &none            &kp W            &kp R       &kp Y       &none  &none
 &kp Q  &kp E  &mt LGUI I  &mt LALT A  &mt LSHFT O    &kp MINUS                  &kp K            &mt RSHFT T      &mt RALT N  &mt RGUI S  &kp H  &kp P
-&none  &kp Z  &kp X       &kp C       &kp V          &kp COMMA    &none  &none  &kp G            &kp D            &kp M       &kp J       &kp B  &none
+&none  &kp Z  &kp X       &kp C       &kp V          &kp COMMA    &none  &none  &kp G            &ls_pgup         &kp M       &ls_pgdn    &kp B  &none
 &none  &none  &none       &mo 4       &mt LCTRL TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RCTRL ENTER  &none       &none       &none  &none
             >;
 
@@ -144,7 +164,7 @@
         LAYER_MOUSE {
             bindings = <
 &trans  &trans     &trans        &trans        &trans      &trans                  &trans          &trans          &mmv MOVE_UP    &trans           &trans  &trans
-&trans  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHIFT  &trans                  &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP     &trans  &trans
+&trans  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &kp LSHIFT  &trans                  &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans     &trans        &trans        &trans      &trans  &trans  &trans  &msc SCRL_DOWN  &msc SCRL_LEFT  &mkp MB3        &msc SCRL_RIGHT  &trans  &trans
 &trans  &trans     &trans        &trans        &trans      &trans                  &trans          &mkp MB1        &mkp MB2        &trans           &trans  &trans
             >;
