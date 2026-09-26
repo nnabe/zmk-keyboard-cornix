@@ -38,6 +38,10 @@
 &key_repeat {
 };
 
+&mmv { time-to-max-speed-ms = <400>; };
+
+&msc { time-to-max-speed-ms = <400>; };
+
 / {
     // 複数キーの同時押しに特別の入力を設定できる
     // Cornix 50キー配置におけるキー番号：
