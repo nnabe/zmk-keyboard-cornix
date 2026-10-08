@@ -153,10 +153,10 @@
         layer_win_base {
             display-name = "WinBase";
             bindings = <
-&none  &kp P  &kp Z       &kp H       &kp F        &none                        &none   &kp Y        &kp O       &kp W       &kp V  &none
-&none  &kp D  &mt LGUI S  &mt LALT N  &mt LCTRL T  &kp G                        &kp L   &mt RCTRL A  &mt RALT I  &mt RGUI U  &kp E  &none
-&none  &kp B  &kp R       &kp M       &kp K        &kp J        &none    &none  &kp X   &kp COMMA    &kp C       &kp DOT     &kp Q  &none
-&none  &none  &none       &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
+&none    &none  &ra_l_altf4  &ra_u_shiftf10  &ra_f_ctrlhome      &none                      &none            &kp W                  &kp R       &kp Y       &none  &none
+&lt 3 Q  &kp E  &mt LGUI I   &mt LALT A      &mt LCTRL O         &rs_pgup                   &kp K            &mt RCTRL T            &mt RALT N  &mt RGUI S  &kp H  &lt 3 P
+&none    &kp Z  &kp X        &kp C           &ra_v_ctrlend       &rs_pgdn     &none  &none  &kp G            &kp D                  &kp M       &kp J       &kp B  &none
+&none    &none  &none        &mo 4           &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
             >;
 
             sensor-bindings =
