@@ -95,7 +95,7 @@
         rs_pgup: rs_pgup {
             compatible = "zmk,behavior-mod-morph";
             label = "RS_PGUP";
-            bindings = <&kp MINUS>, <&kp LC(PG_UP)>;
+            bindings = <&kp COMMA>, <&kp LC(PG_UP)>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
@@ -104,46 +104,19 @@
         rs_pgdn: rs_pgdn {
             compatible = "zmk,behavior-mod-morph";
             label = "RS_PGDN";
-            bindings = <&kp COMMA>, <&kp LC(PG_DN)>;
+            bindings = <&kp DOT>, <&kp LC(PG_DN)>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT)>;
         };
 
-        ra_l_altf4: ra_l_altf4 {
+        rag_z_altf4: rag_z_altf4 {
             compatible = "zmk,behavior-mod-morph";
-            label = "RA_L_ALTF4";
-            bindings = <&kp L>, <&kp LA(F4)>;
+            label = "RAG_Z_ALTF4";
+            bindings = <&kp Z>, <&kp LA(F4)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RALT)>;
-        };
-
-        ra_u_shiftf10: ra_u_shiftf10 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RA_U_SHIFTF10";
-            bindings = <&kp U>, <&kp LS(F10)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RALT)>;
-        };
-
-        ra_f_ctrlhome: ra_f_ctrlhome {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RA_F_CTRLHOME";
-            bindings = <&kp F>, <&kp LC(HOME)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RALT)>;
-        };
-
-        ra_v_ctrlend: ra_v_ctrlend {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RA_V_CTRLEND";
-            bindings = <&kp V>, <&kp LC(END)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_RALT|MOD_RGUI)>;
         };
     };
 
@@ -153,10 +126,10 @@
         layer_win_base {
             display-name = "WinBase";
             bindings = <
-&none  &kp P  &kp Z       &kp H       &kp F               &none                      &none            &kp Y                  &kp O       &kp W       &kp V  &none
-&none  &kp D  &mt LGUI S  &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &none
-&none  &kp B  &kp R       &kp M       &kp K               &kp J        &none  &none  &kp X            &kp COMMA              &kp C       &kp DOT     &kp Q  &none
-&none  &none  &none       &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
+&none    &none  &rag_z_altf4  &kp H       &kp F               &none                      &none            &kp Y                  &kp O       &kp W       &none  &none
+&lt 3 P  &kp D  &mt LGUI S    &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &lt 3 V
+&none    &kp B  &kp R         &kp M       &kp K               &kp J        &none  &none  &kp X            &rs_pgup               &kp C       &rs_pgdn    &kp Q  &none
+&none    &none  &none         &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
             >;
 
             sensor-bindings =
