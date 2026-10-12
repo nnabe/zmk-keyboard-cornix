@@ -60,6 +60,7 @@
         combo_lang2 {
             key-positions = <15 16>;
             bindings = <&kp LANG2>;
+            layers = <0>;
         };
 
         // かな: M (34) + J (35)
@@ -67,16 +68,42 @@
         combo_lang1 {
             key-positions = <20 19>;
             bindings = <&kp LANG1>;
+            layers = <0>;
         };
 
         combo_xn {
             bindings = <&xn>;
             key-positions = <14 15>;
+            layers = <0>;
         };
 
         layer3 {
             bindings = <&mo 3>;
             key-positions = <43 44>;
+        };
+
+        hyphen {
+            bindings = <&kp MINUS>;
+            key-positions = <8 9>;
+            layers = <0>;
+        };
+
+        q {
+            bindings = <&kp Q>;
+            key-positions = <7 8>;
+            layers = <0>;
+        };
+
+        j {
+            bindings = <&kp J>;
+            key-positions = <33 34>;
+            layers = <0>;
+        };
+
+        x {
+            bindings = <&kp X>;
+            key-positions = <20 21>;
+            layers = <0>;
         };
     };
 
@@ -88,6 +115,27 @@
             #binding-cells = <0>;
             bindings = <&kp X &kp N>;
             label = "XN";
+        };
+
+        yo: yo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Y &kp O>;
+            label = "YO";
+        };
+
+        yu: yu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Y &kp U>;
+            label = "YU";
+        };
+
+        ya: ya {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Y &kp A>;
+            label = "YA";
         };
     };
 
@@ -126,9 +174,9 @@
         layer_win_base {
             display-name = "WinBase";
             bindings = <
-&none    &none  &rag_z_altf4  &kp H       &kp F               &none                      &none            &kp Y                  &kp O       &kp W       &none  &none
-&lt 3 P  &kp D  &mt LGUI S    &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &lt 3 V
-&none    &kp B  &kp R         &kp M       &kp K               &kp J        &none  &none  &kp X            &rs_pgup               &kp C       &rs_pgdn    &kp Q  &none
+&none    &none  &rag_z_altf4  &kp H       &kp F               &none                      &none            &yo                    &kp O       &kp W       &none  &none
+&lt 3 P  &kp D  &mt LGUI S    &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &ya
+&none    &kp B  &kp R         &kp M       &kp C               &kp K        &none  &none  &kp Y            &rs_pgup               &yu         &rs_pgdn    &kp V  &none
 &none    &none  &none         &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
             >;
 
