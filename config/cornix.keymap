@@ -73,7 +73,7 @@
 
         combo_xn {
             bindings = <&xn>;
-            key-positions = <14 15>;
+            key-positions = <20 21>;
             layers = <0>;
         };
 
@@ -102,8 +102,13 @@
 
         x {
             bindings = <&kp X>;
-            key-positions = <20 21>;
+            key-positions = <21 22>;
             layers = <0>;
+        };
+
+        xtu {
+            bindings = <&xtu>;
+            key-positions = <34 35>;
         };
     };
 
@@ -137,34 +142,41 @@
             bindings = <&kp Y &kp A>;
             label = "YA";
         };
+
+        xtu: xtu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp X &kp T &kp U>;
+            label = "XTU";
+        };
     };
 
     behaviors {
-        rs_pgup: rs_pgup {
+        ls_pgup: ls_pgup {
             compatible = "zmk,behavior-mod-morph";
-            label = "RS_PGUP";
+            label = "LS_PGUP";
             bindings = <&kp COMMA>, <&kp LC(PG_UP)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT)>;
         };
 
-        rs_pgdn: rs_pgdn {
+        ls_pgdn: ls_pgdn {
             compatible = "zmk,behavior-mod-morph";
-            label = "RS_PGDN";
+            label = "LS_PGDN";
             bindings = <&kp DOT>, <&kp LC(PG_DN)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT)>;
         };
 
-        rag_z_altf4: rag_z_altf4 {
+        ls_yo_altf4: ls_yo_altf4 {
             compatible = "zmk,behavior-mod-morph";
-            label = "RAG_Z_ALTF4";
-            bindings = <&kp Z>, <&kp LA(F4)>;
+            label = "LS_YO_ALTF4";
+            bindings = <&yo>, <&kp LA(F4)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RALT|MOD_RGUI)>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -174,10 +186,10 @@
         layer_win_base {
             display-name = "WinBase";
             bindings = <
-&none    &none  &rag_z_altf4  &kp H       &kp F               &none                      &none            &yo                    &kp O       &kp W       &none  &none
-&lt 3 P  &kp D  &mt LGUI S    &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &ya
-&none    &kp B  &kp R         &kp M       &kp C               &kp K        &none  &none  &kp Y            &rs_pgup               &yu         &rs_pgdn    &kp V  &none
-&none    &none  &none         &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
+&none    &none  &kp Z       &kp H       &lt 5 F             &none                      &none            &ls_yo_altf4           &kp O       &kp W       &none  &none
+&lt 3 P  &kp D  &mt LGUI S  &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &ya
+&none    &kp B  &kp R       &kp M       &kp C               &kp K        &none  &none  &kp Y            &ls_pgup               &yu         &ls_pgdn    &kp V  &none
+&none    &none  &none       &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
             >;
 
             sensor-bindings =
@@ -188,10 +200,10 @@
         layer_win_math {
             display-name = "WinMath";
             bindings = <
-&none     &none     &kp N1       &kp N2       &kp N3               &none                  &none                    &kp LT                   &kp UNDER     &kp GT          &none     &none
-&kp PLUS  &kp N0    &mt LGUI N4  &mt LALT N5  &mt LEFT_CONTROL N6  &none                  &kp EQUAL                &mt RIGHT_CONTROL COLON  &mt RALT DQT  &mt RGUI MINUS  &kp FSLH  &kp PRCNT
-&none     &kp DLLR  &kp N7       &kp N8       &kp N9               &kp DOT  &none  &none  &kp LS(INTERNATIONAL_1)  &kp EXCL                 &kp QMARK     &kp SQT         &kp SEMI  &none
-&none     &none     &none        &none        &trans               &none                  &lt 3 BACKSPACE          &trans                   &none         &none           &none     &none
+&none     &none     &kp N1       &kp N2       &kp N3               &none                  &none                    &kp LT                   &kp UNDER       &kp GT        &none     &none
+&kp PLUS  &kp N0    &mt LGUI N4  &mt LALT N5  &mt LEFT_CONTROL N6  &none                  &kp EQUAL                &mt RIGHT_CONTROL COLON  &mt RALT MINUS  &mt RGUI DQT  &kp FSLH  &kp PRCNT
+&none     &kp DLLR  &kp N7       &kp N8       &kp N9               &kp DOT  &none  &none  &kp LS(INTERNATIONAL_1)  &kp EXCL                 &kp QMARK       &kp SQT       &kp SEMI  &none
+&none     &none     &none        &none        &trans               &none                  &lt 3 BACKSPACE          &trans                   &none           &none         &none     &none
             >;
 
             sensor-bindings =
@@ -233,6 +245,15 @@
 &trans  &kp LEFT_SHIFT  &kp LEFT_GUI  &kp LEFT_ALT  &kp LCTRL  &trans                  &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans
 &trans  &trans          &trans        &trans        &trans     &trans  &trans  &trans  &msc SCRL_DOWN  &msc SCRL_LEFT  &mkp MB3        &msc SCRL_RIGHT  &trans  &trans
 &trans  &trans          &trans        &trans        &trans     &trans                  &trans          &mkp MB1        &mkp MB2        &trans           &trans  &trans
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &kp PLUS   &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &kp BACKSPACE  &xn     &kp MINUS  &xtu    &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans         &trans  &trans     &trans  &trans
             >;
         };
     };
