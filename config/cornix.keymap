@@ -84,7 +84,7 @@
 
         hyphen {
             bindings = <&kp MINUS>;
-            key-positions = <8 9>;
+            key-positions = <8 20>;
             layers = <0>;
         };
 
@@ -178,6 +178,15 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        ls_ya_shiftf10: ls_ya_shiftf10 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LS_YA_SHIFTF10";
+            bindings = <&ya>, <&kp LS(F10)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -187,7 +196,7 @@
             display-name = "WinBase";
             bindings = <
 &none    &none  &kp Z       &kp H       &lt 5 F             &none                      &none            &ls_yo_altf4           &kp O       &kp W       &none  &none
-&lt 3 P  &kp D  &mt LGUI S  &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &ya
+&lt 3 P  &kp D  &mt LGUI S  &mt LALT N  &mt LCTRL T         &kp G                      &kp L            &mt RCTRL A            &mt RALT I  &mt RGUI U  &kp E  &ls_ya_shiftf10
 &none    &kp B  &kp R       &kp M       &kp K               &kp C        &none  &none  &kp Y            &ls_pgup               &yu         &ls_pgdn    &kp V  &none
 &none    &none  &none       &mo 4       &mt LEFT_SHIFT TAB  &lt 1 SPACE                &lt 2 BACKSPACE  &mt RIGHT_SHIFT ENTER  &none       &none       &none  &none
             >;
