@@ -12,6 +12,8 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
+#include <zdkm.dtsi>
+
 // 特殊入力の挙動を調整できる
 
 &mt {
