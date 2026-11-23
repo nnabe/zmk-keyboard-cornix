@@ -52,5 +52,10 @@ manifest:
     #  remote: janpfischer
     #  revision: main
     #  clone-depth: 1
+    
+    - name: zmk-dynamic-keymapper
+    url: https://github.com/alektor-diy/zmk-dynamic-keymapper
+    revision: main
+    
   self:
     path: config
