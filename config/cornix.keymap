@@ -239,10 +239,10 @@
         layer_system {
             display-name = "System";
             bindings = <
-&none   &none          &bt BT_SEL 4     &bt BT_CLR       &bt BT_CLR_ALL       &none                                   &none   &kp INS               &kp C_VOL_UP      &kp PG_UP          &none                &none
-&kp F1  &bt BT_SEL 0   &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3         &out OUT_TOG                            &tog 3  &kp K_MUTE            &kp C_VOL_DN      &kp PG_DN          &kp K_APP            &kp F12
-&none   &mt LSHIFT F2  &mt LEFT_GUI F3  &mt LEFT_ALT F4  &mt LEFT_CONTROL F5  &kp F6        &bootloader  &bootloader  &kp F7  &mt RIGHT_CONTROL F8  &mt RIGHT_ALT F9  &mt RIGHT_GUI F10  &mt RIGHT_SHIFT F11  &none
-&none   &none          &none            &none            &none                &none                                   &none   &none                 &none             &none              &none                &none
+&zdkm_unlock  &none          &bt BT_SEL 4     &bt BT_CLR       &bt BT_CLR_ALL       &none                                   &none   &kp INS               &kp C_VOL_UP      &kp PG_UP          &none                &none
+&kp F1        &bt BT_SEL 0   &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3         &out OUT_TOG                            &tog 3  &kp K_MUTE            &kp C_VOL_DN      &kp PG_DN          &kp K_APP            &kp F12
+&none         &mt LSHIFT F2  &mt LEFT_GUI F3  &mt LEFT_ALT F4  &mt LEFT_CONTROL F5  &kp F6        &bootloader  &bootloader  &kp F7  &mt RIGHT_CONTROL F8  &mt RIGHT_ALT F9  &mt RIGHT_GUI F10  &mt RIGHT_SHIFT F11  &none
+&none         &none          &none            &none            &none                &none                                   &none   &none                 &none             &none              &none                &none
             >;
 
             sensor-bindings =
